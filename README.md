@@ -31,6 +31,17 @@ __An Api for state and national parks of the United States.__
 
 #### To Access the Swagger UI:
 9. This API uses Swagger. To launch the Swagger/OpenAPI utility in your browser, navigate to the localhost:5000.  You can now see all API routes grouped by controller.  Clicking on a route will expand it and show details of that route, and give you the option to "Try It Out."
+* Now you can view all API endpoints for:
+  ``Parks``
+  ``ParksV2``
+
+#### Versioning
+_Make sure the application is runnning, open Postman, and perform the folowing commands:_
+ 
+ 1. Create GET request ```http://localhost:5000/api/parks```
+ 2. Press the ```Send``` button._Now you should see a ```status: 200 OK``` message_.
+ 3. You will get "api-supported-versions" in response ``Header`` section.
+
 
 #### If you need to install and configure MySQL:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.

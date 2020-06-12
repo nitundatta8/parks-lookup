@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,7 @@ namespace ParksLookup
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksLookup API", Version = "v1" });
       });
 
+
       //Api versioning
       services.AddApiVersioning(option =>
       {
@@ -41,6 +43,7 @@ namespace ParksLookup
       });
 
     }
+
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -58,7 +61,7 @@ namespace ParksLookup
 
       app.UseSwaggerUI(c =>
       {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ParksLookup V1");
         c.RoutePrefix = string.Empty;
       });
 
