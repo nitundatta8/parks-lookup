@@ -29,8 +29,17 @@ namespace ParksLookup
       //swagger
       services.AddSwaggerGen(c =>
       {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksLookup API", Version = "v1" });
       });
+
+      //Api versioning
+      services.AddApiVersioning(option =>
+      {
+        option.ReportApiVersions = true;
+        option.AssumeDefaultVersionWhenUnspecified = true;
+        option.DefaultApiVersion = new ApiVersion(1, 0);
+      });
+
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -7,6 +7,7 @@ using System;
 
 namespace ParksLookup.Controllers
 {
+  [ApiVersion("1.0")]
   [Route("api/[controller]")]
   [ApiController]
   public class ParksController : Controller
@@ -73,7 +74,31 @@ namespace ParksLookup.Controllers
       _db.Parks.Remove(parkToDelete);
       _db.SaveChanges();
     }
+    // // GET api/parks/random
+
+    // [HttpGet("random")]
+    // public ActionResult<Park> Random()
+    // {
+    //   List<Park> parks = _db.Parks.ToList();
+    //   var rnd = new Random();
+    //   int rndIdx = rnd.Next(0, parks.Count);
+    //   return parks[rndIdx];
+    // }
+  }
+
+  //versioning V2
+  [ApiVersion("2.0")]
+  [Route("api/[controller]")]
+  [ApiController]
+  public class ParksV2 : Controller
+  {
+    private ParksLookupContext _db;
+    public ParksV2(ParksLookupContext db)
+    {
+      _db = db;
+    }
     // GET api/parks/random
+
     [HttpGet("random")]
     public ActionResult<Park> Random()
     {
