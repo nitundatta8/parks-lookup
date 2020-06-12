@@ -27,7 +27,10 @@ __An Api for state and national parks of the United States.__
 ```
 6. For launching the program navigate to the _ParksLookup_ directory and run ```dotnet build ```.
 7. Then run ```dotnet ef database update```.
-8. Finaly,run ```dotnet run``` command in the same directory to to open a live server w/auto updated viewing.Then navigate to localhost:5000/.
+8. Finaly,run ```dotnet run``` command in the same directory to to open a live server w/auto updated viewing.
+
+#### To Access the Swagger UI:
+9. This API uses Swagger. To launch the Swagger/OpenAPI utility in your browser, navigate to the localhost:5000.  You can now see all API routes grouped by controller.  Clicking on a route will expand it and show details of that route, and give you the option to "Try It Out."
 
 #### If you need to install and configure MySQL:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.
