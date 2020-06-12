@@ -36,7 +36,7 @@ namespace ParksLookup.Controllers
       return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
     }
 
-    // GET api/parks
+    // GET api/parks/search?state=Oregon&name=Painted Hills
     [HttpGet, Route("search")]
     public ActionResult<IEnumerable<Park>> Search(string name, string state)
     {

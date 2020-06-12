@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+
 using ParksLookup.Models;
 
 namespace ParksLookup
@@ -23,8 +25,13 @@ namespace ParksLookup
       services.AddDbContext<ParksLookupContext>(opt =>
           opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-    }
 
+      //swagger
+      services.AddSwaggerGen(c =>
+      {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+      });
+    }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -37,6 +44,14 @@ namespace ParksLookup
 
         app.UseHsts();
       }
+
+      app.UseSwagger();
+
+      app.UseSwaggerUI(c =>
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = string.Empty;
+      });
 
 
       app.UseMvc();
