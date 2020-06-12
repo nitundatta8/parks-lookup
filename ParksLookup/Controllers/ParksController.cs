@@ -36,6 +36,25 @@ namespace ParksLookup.Controllers
       return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
     }
 
+    // GET api/parks
+    [HttpGet, Route("search")]
+    public ActionResult<IEnumerable<Park>> Search(string name, string state)
+    {
+      var query = _db.Parks.AsQueryable();
+
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+
+      if (state != null)
+      {
+        query = query.Where(entry => entry.State == state);
+      }
+
+      return query.ToList();
+    }
+
     // PUT api/parks/3
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Park park)

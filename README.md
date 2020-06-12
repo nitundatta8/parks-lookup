@@ -63,10 +63,11 @@ You can test the API directly using an applicaion such as `Postman`. All endpoin
 |-| :---------------- | :----- | 
 |1| User can READ all parks api call | `GET` /api/parks |
 |2| User can READ a certain park | `GET` /api/parks/{id} |
-|2| User can SEARCH parks by park name and/or state codes | `GET` /api/parks?parkname=yellowstone |
-|3| User can CREATE a new park | `POST` /api/parks |
-|4| User can UPDATE a existing park information | `PUT` /api/parks/{id} |
-|5| User can DELETE a certain park | `DELETE` /api/parks/{id} |
+|3.a| User can SEARCH parks by park name and/or state | `GET` /api/parks/search?name=Zion |
+|3.b| User can SEARCH parks by park name and/or state | `GET` /api/parks/search?state=Oregon |
+|4| User can CREATE a new park | `POST` /api/parks |
+|5| User can UPDATE a existing park information | `PUT` /api/parks/{id} |
+|6| User can DELETE a certain park | `DELETE` /api/parks/{id} |
 
 
 #### License
