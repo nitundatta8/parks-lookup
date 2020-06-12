@@ -8,7 +8,7 @@
 
 ### Description
 
-__A application.__
+__An Api for state and national parks of the United States.__
 
 ## Setup/Installation Requirements
 
@@ -17,12 +17,17 @@ __A application.__
   (VSCode, Atom, etc.)
 3. Make sure that C#/.netcore2.2 is installed on your computer.
 4. Ensure that  MySQL Community Server is installed on your computer.
-5. Within the ParksLookup directory add your MySQL password to the appsettings.json file.
-* "Server=localhost;Port=3306;database=parks_lookup;uid=root;pwd=YOURPASSWORDHERE;"
-* Make any other changes needed if you have an alternative server, port, or uid selected. These are the default settings.
-6. For launching the program navigate to the _ParksLookup_ directory and run _dotnet build_.
-7. Then run _dotnet ef database update_.
-8. Finaly,run _dotnet run_ command in the same directory to to open a live server w/auto updated viewing.Then navigate to localhost:5000/.
+5. 5. Currently, the mySQL database is set up with an appsettings.json file that was not uploaded to Github.  Once you have saved the SQL database on your computer, create an appsettings.json file in the project root directory, and update it with your MySQL installation information in this format:
+```
+  {
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=[YOUR PORT     NUMBER HERE];database=[DATABASE NAME AS YOU SAVED IT];uid=YOUR USER ID HERE;pwd=YOUR PASSWORD HERE;"
+  }
+}
+```
+6. For launching the program navigate to the _ParksLookup_ directory and run ```dotnet build ```.
+7. Then run ```dotnet ef database update```.
+8. Finaly,run ```dotnet run``` command in the same directory to to open a live server w/auto updated viewing.Then navigate to localhost:5000/.
 
 #### If you need to install and configure MySQL:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.
@@ -50,8 +55,18 @@ Please contact me with any suggestions or questions at nitun.2@gmail.com. Thank 
 * Entity Framework Core
 * Git and GitHub
 
-### Specs
-* 
+### Specifications : 
+You can test the API directly using an applicaion such as `Postman`. All endpoints use host `localhost:5000`
+
+#### PARKS
+|| Spec  | API Endpoint  |
+|-| :---------------- | :----- | 
+|1| User can READ all parks api call | `GET` /api/parks |
+|2| User can READ a certain park | `GET` /api/parks/{id} |
+|2| User can SEARCH parks by park name and/or state codes | `GET` /api/parks?parkname=yellowstone |
+|3| User can CREATE a new park | `POST` /api/parks |
+|4| User can UPDATE a existing park information | `PUT` /api/parks/{id} |
+|5| User can DELETE a certain park | `DELETE` /api/parks/{id} |
 
 
 #### License
