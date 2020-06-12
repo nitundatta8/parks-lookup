@@ -74,16 +74,7 @@ namespace ParksLookup.Controllers
       _db.Parks.Remove(parkToDelete);
       _db.SaveChanges();
     }
-    // // GET api/parks/random
 
-    // [HttpGet("random")]
-    // public ActionResult<Park> Random()
-    // {
-    //   List<Park> parks = _db.Parks.ToList();
-    //   var rnd = new Random();
-    //   int rndIdx = rnd.Next(0, parks.Count);
-    //   return parks[rndIdx];
-    // }
   }
 
   //versioning V2

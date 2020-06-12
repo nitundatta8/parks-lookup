@@ -3,7 +3,7 @@
 
 #### _C# Building an API Independent Project._
 
-#### Made By **Nitun Data_**
+#### Made By **Nitun Data**
 #### June 12, 2020
 
 ### Description
