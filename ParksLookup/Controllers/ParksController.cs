@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksLookup.Models;
+using System;
 
 namespace ParksLookup.Controllers
 {
@@ -37,7 +38,7 @@ namespace ParksLookup.Controllers
     }
 
     // GET api/parks/search?state=Oregon&name=Painted Hills
-    [HttpGet, Route("search")]
+    [HttpGet("search")]
     public ActionResult<IEnumerable<Park>> Search(string name, string state)
     {
       var query = _db.Parks.AsQueryable();
@@ -71,6 +72,15 @@ namespace ParksLookup.Controllers
       var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
       _db.Parks.Remove(parkToDelete);
       _db.SaveChanges();
+    }
+    // GET api/parks/random
+    [HttpGet("random")]
+    public ActionResult<Park> Random()
+    {
+      List<Park> parks = _db.Parks.ToList();
+      var rnd = new Random();
+      int rndIdx = rnd.Next(0, parks.Count);
+      return parks[rndIdx];
     }
   }
 }
